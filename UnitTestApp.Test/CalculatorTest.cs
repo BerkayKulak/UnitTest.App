@@ -34,13 +34,20 @@ namespace UnitTestApp.Test
 
 
             // gerçek ifademde Fatih ismi geçiyorsa doğru çevirir.
-
             // Assert.Contains("Fatih", "Fatih Çakıroğlu");
             // Assert.DoesNotContain("Emre", "Fatih Çakıroğlu");
 
-            var names = new List<string>() {"Fatih", "Emre", "Hasan"};
 
-            Assert.Contains(names,x=> x == "Fatih");
+            //var names = new List<string>() {"Fatih", "Emre", "Hasan"};
+            //Assert.Contains(names,x=> x == "Fatih");
+
+            //Assert.True(5>2);
+            //Assert.False(2>5);
+
+            //Assert.True("".GetType()==typeof(string));
+
+
+
 
 
         }
