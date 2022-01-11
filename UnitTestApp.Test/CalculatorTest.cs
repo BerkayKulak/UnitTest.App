@@ -13,23 +13,35 @@ namespace UnitTestApp.Test
         [Fact]
         public void AddTest()
         {
-            // Arrange
+            //// Arrange
 
-            int a = 5;
+            //int a = 5;
 
-            int b = 20;
+            //int b = 20;
 
-            var calculator = new Calculator();
-
-
-            // Act
-
-            var total = calculator.add(a, b);
+            //var calculator = new Calculator();
 
 
-            // Assert
+            //// Act
 
-            Assert.Equal<int>(25,total);
+            //var total = calculator.add(a, b);
+
+
+            //// Assert
+
+            //Assert.Equal<int>(25,total);
+
+
+
+            // gerçek ifademde Fatih ismi geçiyorsa doğru çevirir.
+
+            // Assert.Contains("Fatih", "Fatih Çakıroğlu");
+            // Assert.DoesNotContain("Emre", "Fatih Çakıroğlu");
+
+            var names = new List<string>() {"Fatih", "Emre", "Hasan"};
+
+            Assert.Contains(names,x=> x == "Fatih");
+
 
         }
     }
