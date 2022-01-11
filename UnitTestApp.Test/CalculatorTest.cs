@@ -69,8 +69,11 @@ namespace UnitTestApp.Test
 
             
             //Assert.IsType<string>("fatih");
-            Assert.IsNotType<int>("fatih");
+            //Assert.IsNotType<int>("fatih");
 
+            // List sınıfı IEnumerable implemente ediyor. True döner
+            // Assert.IsAssignableFrom<IEnumerable<string>>(new List<string>());
+            Assert.IsAssignableFrom<object>("berkay");
 
 
 
