@@ -60,6 +60,11 @@ namespace UnitTestApp.Test
             //Assert.NotEmpty(new List<string>(){"Fatih"});
 
 
+            //Assert.InRange(10,2,20);
+            Assert.NotInRange(25,2,20);
+
+
+
 
 
 
