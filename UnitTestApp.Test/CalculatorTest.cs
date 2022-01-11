@@ -61,9 +61,11 @@ namespace UnitTestApp.Test
 
 
             //Assert.InRange(10,2,20);
-            Assert.NotInRange(25,2,20);
+            //Assert.NotInRange(25,2,20);
 
 
+            //Assert.Single(new List<string>() {"Fatih"});
+            Assert.Single(new List<string>() {"Fatih","Berkay"});
 
 
 
