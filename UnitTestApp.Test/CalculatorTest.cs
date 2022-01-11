@@ -10,6 +10,15 @@ namespace UnitTestApp.Test
 {
     public class CalculatorTest
     {
+
+        public Calculator Calculator { get; set; }
+
+        public CalculatorTest()
+        {
+            Calculator = new Calculator();
+        }
+
+
         [Fact]
         public void AddTest()
         {
@@ -19,12 +28,9 @@ namespace UnitTestApp.Test
 
             int b = 20;
 
-            var calculator = new Calculator();
-
-
             // Act
 
-            var total = calculator.add(a, b);
+            var total = Calculator.add(a, b);
 
 
             // Assert
@@ -36,11 +42,10 @@ namespace UnitTestApp.Test
         [Theory]
         [InlineData(2,5,7)]
       
-        public void AddTest2(int a, int b,int ExpectedTotal)
+        public void Add_simpleValues_ReturnTotalValue(int a, int b,int ExpectedTotal)
         {
-            var calculator = new Calculator();
 
-            var actualData = calculator.add(a, b);
+            var actualData = Calculator.add(a, b);
 
             Assert.Equal(ExpectedTotal, actualData);
         }
