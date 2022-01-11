@@ -37,7 +37,6 @@ namespace UnitTestApp.Test
             // Assert.Contains("Fatih", "Fatih Çakıroğlu");
             // Assert.DoesNotContain("Emre", "Fatih Çakıroğlu");
 
-
             //var names = new List<string>() {"Fatih", "Emre", "Hasan"};
             //Assert.Contains(names,x=> x == "Fatih");
 
@@ -51,7 +50,16 @@ namespace UnitTestApp.Test
             //Assert.DoesNotMatch(regEx,"asdfdsaf");
 
             //Assert.StartsWith("Bir","Bir Masal");
-            Assert.EndsWith("masal","Bir Masal");
+            //Assert.EndsWith("masal","Bir Masal");
+
+
+
+
+            //Assert.Empty(new List<string>());
+            //Assert.Empty(new List<string>(){"Fatih"});
+            //Assert.NotEmpty(new List<string>(){"Fatih"});
+
+
 
 
 
