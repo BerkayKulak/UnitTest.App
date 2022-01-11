@@ -46,10 +46,12 @@ namespace UnitTestApp.Test
 
             //Assert.True("".GetType()==typeof(string));
 
-            var regEx = "^dog";
-
+            //var regEx = "^dog";
             //Assert.Matches(regEx,"dogbgc");
-            Assert.DoesNotMatch(regEx,"asdfdsaf");
+            //Assert.DoesNotMatch(regEx,"asdfdsaf");
+
+            //Assert.StartsWith("Bir","Bir Masal");
+            Assert.EndsWith("masal","Bir Masal");
 
 
 
