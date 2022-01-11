@@ -73,7 +73,11 @@ namespace UnitTestApp.Test
 
             // List sınıfı IEnumerable implemente ediyor. True döner
             // Assert.IsAssignableFrom<IEnumerable<string>>(new List<string>());
-            Assert.IsAssignableFrom<object>("berkay");
+            // Assert.IsAssignableFrom<object>("berkay");
+
+            //string deger = null;
+            //Assert.Null(deger);
+            //Assert.NotNull(deger);
 
 
 
