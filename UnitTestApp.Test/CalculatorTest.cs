@@ -65,7 +65,11 @@ namespace UnitTestApp.Test
 
 
             //Assert.Single(new List<string>() {"Fatih"});
-            Assert.Single(new List<string>() {"Fatih","Berkay"});
+            //Assert.Single(new List<string>() {"Fatih","Berkay"});
+
+            
+            //Assert.IsType<string>("fatih");
+            Assert.IsNotType<int>("fatih");
 
 
 
