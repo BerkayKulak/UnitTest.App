@@ -73,12 +73,21 @@ namespace UnitTestApp.Test
 
 
         [Theory]
-        [InlineData(5, 4, 20)]
+        [InlineData(3,5, 15)]
         public void Multip_SimpleValues_ReturnsMultipValue(int a, int b,int ExpectedMultip)
         {
-            mymock.Setup(x => x.multip(a, b)).Returns(ExpectedMultip);
+            int actualMultip=0;
+            mymock.Setup(x => x.multip(It.IsAny<int>(), It.IsAny<int>()))
+                .Callback<int, int>((x, y) => actualMultip = x * y);
 
-            Assert.Equal(ExpectedMultip,Calculator.multip(a,b));
+            Calculator.multip(a, b);
+
+            Assert.Equal(ExpectedMultip,actualMultip);
+
+            Calculator.multip(5, 20);
+
+            Assert.Equal(100,actualMultip);
+
         }
 
         [Theory]
