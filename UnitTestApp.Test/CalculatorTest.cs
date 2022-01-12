@@ -55,6 +55,8 @@ namespace UnitTestApp.Test
             var actualData = Calculator.add(a, b);
 
             Assert.Equal(ExpectedTotal, actualData);
+
+            mymock.Verify(x=>x.add(a,b),Times.Once);
         }
 
         [Theory]
