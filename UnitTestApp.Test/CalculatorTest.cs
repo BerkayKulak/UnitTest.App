@@ -81,5 +81,16 @@ namespace UnitTestApp.Test
             Assert.Equal(ExpectedMultip,Calculator.multip(a,b));
         }
 
+        [Theory]
+        [InlineData(0, 4)]
+        public void Multip_ZeroValues_ReturnsException(int a, int b)
+        {
+            mymock.Setup(x => x.multip(a, b)).Throws(new Exception("a=0 olamaz"));
+
+            Exception exception = Assert.Throws<Exception>(() => Calculator.multip(a, b));
+
+            Assert.Equal("a=0 olamaz",exception.Message);
+        }
+
     }
 }
