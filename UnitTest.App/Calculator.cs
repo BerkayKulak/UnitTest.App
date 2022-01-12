@@ -8,7 +8,7 @@ namespace UnitTest.App
 {
     public class Calculator
     {
-        private ICalculatorService _calculatorService;
+        private ICalculatorService _calculatorService { get; set; }
         public Calculator(ICalculatorService calculatorService)
         {
             _calculatorService = calculatorService;
@@ -17,6 +17,11 @@ namespace UnitTest.App
         public int add(int a, int b)
         {
             return _calculatorService.add(a, b);
+        }
+
+        public int multip(int a, int b)
+        {
+            return _calculatorService.multip(a, b);
         }
     }
 }

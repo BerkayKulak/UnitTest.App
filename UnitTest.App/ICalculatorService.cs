@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace UnitTest.App
 {
-    internal interface CalculatorService
+    public interface ICalculatorService
     {
+        int add(int a, int b);
+        int multip(int a, int b);
     }
 }
