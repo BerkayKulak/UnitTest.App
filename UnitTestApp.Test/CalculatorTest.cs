@@ -44,8 +44,8 @@ namespace UnitTestApp.Test
         }
 
         [Theory]
-        [InlineData(2, 5, 7)]
-        [InlineData(10, 2, 12)]
+        [InlineData(2, 5, 456)]
+        [InlineData(10, 2, 13)]
 
         public void Add_simpleValues_ReturnTotalValue(int a, int b, int ExpectedTotal)
         {
@@ -56,7 +56,7 @@ namespace UnitTestApp.Test
 
             Assert.Equal(ExpectedTotal, actualData);
 
-            mymock.Verify(x=>x.add(a,b),Times.Once);
+            //mymock.Verify(x=>x.add(a,b),Times.Once);
         }
 
         [Theory]

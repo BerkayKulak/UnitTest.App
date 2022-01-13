@@ -1,6 +1,16 @@
-﻿namespace RealWorldUnitTest.Web.Repository
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace RealWorldUnitTest.Web.Repository
 {
-    public interface IRepository
+    public interface IRepository<TEntity> where TEntity  : class
     {
+        Task<IEnumerable<TEntity>> GetAll();
+        Task<TEntity> GetById(int id);
+
+        Task Create(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
+
     }
 }
