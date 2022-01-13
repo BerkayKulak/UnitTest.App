@@ -35,7 +35,7 @@ namespace RealWorldUnitTest.Web.Repository
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
 
-            _dbSet.Update(entity);
+            // _dbSet.Update(entity);
 
             _dbContext.SaveChanges();
         }
