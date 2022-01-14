@@ -39,6 +39,25 @@ namespace RealWorldUnitTest.Test
 
             Assert.IsType<ViewResult>(result);
 
+
+        }
+
+        [Fact]
+        public async void Index_ActionExecutes_ReturnProductList()
+        {
+            _mockRepo.Setup(x => x.GetAll()).ReturnsAsync(_products);
+
+            var result = await _controller.Index();
+
+            // geriye result dönüyor mu
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            // Modelim bir productList mi onu kontrol ettim
+            var productList = Assert.IsAssignableFrom<IEnumerable<Product>>(viewResult.Model);
+
+            // liste eleman sayısı 2 mi
+            Assert.Equal<int>(2,productList.Count());
+
         }
     }
 }
