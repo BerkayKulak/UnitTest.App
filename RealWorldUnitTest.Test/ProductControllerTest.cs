@@ -103,6 +103,7 @@ namespace RealWorldUnitTest.Test
             var resultProduct = Assert.IsAssignableFrom<Product>(viewResult.Model);
 
             Assert.Equal(product.Id,resultProduct.Id);
+
             Assert.Equal(product.Name,resultProduct.Name);
         }
 
@@ -112,6 +113,18 @@ namespace RealWorldUnitTest.Test
             var result = _controller.Create();
 
             Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public async void Create_InValidModelState_ReturnView()
+        {
+            _controller.ModelState.AddModelError("Name","Name Alanı Gereklidir");
+
+            var result = await _controller.Create(_products.First());
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.IsType<Product>(viewResult.Model);
         }
 
     }
