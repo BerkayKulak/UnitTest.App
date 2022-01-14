@@ -44,8 +44,8 @@ namespace UnitTestApp.Test
         }
 
         [Theory]
-        [InlineData(2, 5, 456)]
-        [InlineData(10, 2, 13)]
+        [InlineData(2, 5, 7)]
+        [InlineData(10, 2, 12)]
 
         public void Add_simpleValues_ReturnTotalValue(int a, int b, int ExpectedTotal)
         {
