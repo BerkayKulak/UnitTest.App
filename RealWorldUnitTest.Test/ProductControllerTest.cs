@@ -72,5 +72,21 @@ namespace RealWorldUnitTest.Test
 
         }
 
+        [Fact]
+        public async void Details_IdInvalid_ReturnNotFound()
+        {
+            Product product = null;
+
+            _mockRepo.Setup(x => x.GetById(0)).ReturnsAsync(product);
+
+            var result = await _controller.Details(0);
+
+            var redirect = Assert.IsType<NotFoundResult>(result);
+
+            Assert.Equal<int>(404,redirect.StatusCode);
+
+
+        }
+
     }
 }
