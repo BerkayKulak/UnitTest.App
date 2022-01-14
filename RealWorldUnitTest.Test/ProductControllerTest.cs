@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using RealWorldUnitTest.Web.Controllers;
 using RealWorldUnitTest.Web.Models;
 using RealWorldUnitTest.Web.Repository;
+using Xunit;
 
 namespace RealWorldUnitTest.Test
 {
@@ -26,6 +28,16 @@ namespace RealWorldUnitTest.Test
             _products = new List<Product>{
                 new Product{Id = 1,Name = "Kalem",Price = 100,Stock = 50,Color = "Kırmızı"},
                 new Product { Id = 2, Name = "Defter", Price = 200, Stock = 500, Color = "Mavi" } };
+
+
+        }
+
+        [Fact]
+        public async void Index_ActionExecutes_ReturnView()
+        {
+            var result = await _controller.Index();
+
+            Assert.IsType<ViewResult>(result);
 
         }
     }
