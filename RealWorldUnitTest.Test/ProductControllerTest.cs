@@ -153,6 +153,18 @@ namespace RealWorldUnitTest.Test
 
         }
 
+        [Fact]
+        public async void CreatePost_InvalidModelState_NeverCreateExecute()
+        {
+            _controller.ModelState.AddModelError("Name","");
+
+            var result = await _controller.Create(_products.First());
+
+            _mockRepo.Verify(repo=>repo.Create(It.IsAny<Product>()),Times.Never);
+
+
+        }
+
 
 
 
