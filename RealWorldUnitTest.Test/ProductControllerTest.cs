@@ -165,6 +165,17 @@ namespace RealWorldUnitTest.Test
 
         }
 
+        [Fact]
+        public async void Edit_IdIsNull_ReturnRedirectToIndexActionIndex()
+        {
+            var result = await _controller.Edit(null);
+
+            var redirect = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal("Index",redirect.ActionName);
+
+
+        }
 
 
 
