@@ -211,6 +211,7 @@ namespace RealWorldUnitTest.Test
 
         }
 
+
         [Theory]
         [InlineData(1)]
         public void EditPost_IdIsNotEqualProduct_ReturnNotFound(int productId)
@@ -219,6 +220,19 @@ namespace RealWorldUnitTest.Test
 
             var redirect = Assert.IsType<NotFoundResult>(result);
 
+        }
+
+        [Theory]
+        [InlineData(1)]
+        public void EditPOST_InvalidModelState_ReturnView(int productId)
+        {
+            _controller.ModelState.AddModelError("Name","");
+
+            var result = _controller.Edit(productId, _products.First(x => x.Id == productId));
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.IsType<Product>(viewResult.Model);
 
         }
 
