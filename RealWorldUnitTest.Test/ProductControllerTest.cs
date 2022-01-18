@@ -287,5 +287,22 @@ namespace RealWorldUnitTest.Test
         }
 
 
+        [Theory]
+        [InlineData(0)]
+        public async void Delete_ActionExecute_ReturnProduct(int productId)
+        {
+            var product = _products.First(x => x.Id == productId);
+
+            _mockRepo.Setup(repo => repo.GetById(productId)).ReturnsAsync(product);
+
+            var result = await _controller.Delete(productId);
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.IsAssignableFrom<Product>(viewResult);
+
+        }
+
+
     }
 }
