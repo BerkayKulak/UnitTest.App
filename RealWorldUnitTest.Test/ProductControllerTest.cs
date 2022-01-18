@@ -209,10 +209,34 @@ namespace RealWorldUnitTest.Test
 
             Assert.Equal(product.Name,resultProduct.Name);
 
+        }
 
 
+        [Theory]
+        [InlineData(1)]
+        public void EditPost_IdIsNotEqualProduct_ReturnNotFound(int productId)
+        {
+            var result = _controller.Edit(2, _products.First(x => x.Id == productId));
+
+            var redirect = Assert.IsType<NotFoundResult>(result);
 
         }
+
+        [Theory]
+        [InlineData(1)]
+        public void EditPOST_InvalidModelState_ReturnView(int productId)
+        {
+            _controller.ModelState.AddModelError("Name","");
+
+            var result = _controller.Edit(productId, _products.First(x => x.Id == productId));
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.IsType<Product>(viewResult.Model);
+
+        }
+
+
 
 
 
