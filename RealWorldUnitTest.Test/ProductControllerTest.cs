@@ -288,7 +288,7 @@ namespace RealWorldUnitTest.Test
 
 
         [Theory]
-        [InlineData(0)]
+        [InlineData(1)]
         public async void Delete_ActionExecute_ReturnProduct(int productId)
         {
             var product = _products.First(x => x.Id == productId);
@@ -302,6 +302,18 @@ namespace RealWorldUnitTest.Test
             Assert.IsAssignableFrom<Product>(viewResult);
 
         }
+
+
+        [Theory]
+        [InlineData(1)]
+        public async void DeleteConfirmed_ActionExecutes_ReturnRedirectToIndexAction(int productId)
+        {
+            var result = await _controller.DeleteConfirmed(productId);
+
+            Assert.IsType<RedirectToActionResult>(result);
+
+        }
+
 
 
     }
