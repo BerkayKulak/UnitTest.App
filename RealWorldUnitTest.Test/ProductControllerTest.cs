@@ -326,8 +326,6 @@ namespace RealWorldUnitTest.Test
 
             _mockRepo.Verify(repo=>repo.Delete(It.IsAny<Product>()),Times.Once);
 
-            
-
 
         }
 
