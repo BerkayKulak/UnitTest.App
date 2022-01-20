@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using RealWorldUnitTest.Web.Controllers;
+using RealWorldUnitTest.Web.Helpers;
 using RealWorldUnitTest.Web.Models;
 using RealWorldUnitTest.Web.Repository;
 using Xunit;
@@ -18,15 +20,29 @@ namespace RealWorldUnitTest.Test
 
         private readonly ProductsApiController _controller;
 
+        private readonly Helper _helper;
+
         private List<Product> _products;
 
         public ProductApiControllerTest()
         {
             _mockRepo = new Mock<IRepository<Product>>();
+            _helper = new Helper();
             _controller = new ProductsApiController(_mockRepo.Object);
             _products = new List<Product>{
                 new Product{Id = 1,Name = "Kalem",Price = 100,Stock = 50,Color = "Kırmızı"},
                 new Product { Id = 2, Name = "Defter", Price = 200, Stock = 500, Color = "Mavi" } };
+
+        }
+
+        [Theory]
+        [InlineData(4, 5,9)]
+        public void Add_SampleValues_ReturnTotal(int a, int b,int total)
+        {
+            var result = _helper.add(a, b);
+
+            Assert.Equal(total,result);
+
 
         }
 
