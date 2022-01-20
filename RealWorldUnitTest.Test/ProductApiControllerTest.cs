@@ -57,9 +57,39 @@ namespace RealWorldUnitTest.Test
 
             Assert.IsType<NotFoundResult>(result);
 
+        }
+
+        [Theory]
+        [InlineData(1)]
+        public async void GetProduct_IdValid_ReturnOkResult(int productId)
+        {
+            var product = _products.First(x => x.Id == productId);
+
+            _mockRepo.Setup(x => x.GetById(productId)).ReturnsAsync(product);
+
+            var result = await _controller.GetProduct(productId);
+
+            var okResult = Assert.IsType<OkObjectResult>(result);
+
+            var returnProduct = Assert.IsType<Product>(okResult.Value);
+
+            Assert.Equal(productId, returnProduct.Id);
+
+            Assert.Equal(product.Name,returnProduct.Name);
 
         }
 
+        [Theory]
+        [InlineData(1)]
+        public void PutProduct_IdIsNotEqualProduct_ReturnBadRequestResult(int productId)
+        {
+            var product = _products.First(x => x.Id == productId);
+
+            var result = _controller.PutProduct(2, product);
+
+            Assert.IsType<BadRequestResult>(result);
+
+        }
 
     }
 }
